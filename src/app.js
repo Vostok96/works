@@ -1,11 +1,13 @@
 const express = require('express');
 const db = require('./utils/database');
 const Works = require('./models/works.models');
+require('dotenv').config();
 
+const PORT = process.env.PORT || 8000;
 
 db.authenticate()
     .then(()=> console.log('Base de datos conectada'))
-    .catch(()=> console.log(err));
+    .catch((error)=> console.log(error));
 
 db.sync()
     .then(()=> console.log("Base de datos sincronizada"))
@@ -72,7 +74,7 @@ app.put('/works/:id', async (req, res) => {
     }
 });
 
-app.listen(8000, () => {
+app.listen(PORT, () => {
     console.log("Servidor escuchando en el pto 8000")
 });
 
