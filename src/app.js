@@ -75,3 +75,5 @@ app.put('/works/:id', async (req, res) => {
 app.listen(8000, () => {
     console.log("Servidor escuchando en el pto 8000")
 });
+
+console.log(process.env);
